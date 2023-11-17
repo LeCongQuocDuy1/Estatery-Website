@@ -4,6 +4,8 @@ export default {
     theme: {
         extend: {
             backgroundColor: {
+                background: "#f7f7fd",
+                overlay: "rgba(0, 0, 0, 0.6)",
                 "main-50": "#7065f0",
                 "main-100": "#695de4",
                 "main-200": "#6156d8",
@@ -16,6 +18,8 @@ export default {
                 "main-900": "#3b338a",
             },
             colors: {
+                primary: "#2f2a6c",
+                main: "#000929",
                 "main-50": "#7065f0",
                 "main-100": "#695de4",
                 "main-200": "#6156d8",
@@ -26,6 +30,9 @@ export default {
                 "main-700": "#453da0",
                 "main-800": "#403894",
                 "main-900": "#3b338a",
+            },
+            boxShadow: {
+                main: "0 0 3px 0.6px rgba(0, 0, 0, 0.2)",
             },
         },
     },

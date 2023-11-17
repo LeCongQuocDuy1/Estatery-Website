@@ -2,3 +2,8 @@ export { default as PublicLayout } from "./PublicLayout";
 export { default as Home } from "./Home";
 export { default as Properties } from "./Properties";
 export { default as PropertyDetail } from "./PropertyDetail";
+export { default as Rent } from "./Rent";
+export { default as Buy } from "./Buy";
+export { default as Sell } from "./Sell";
+export { default as ManageProperty } from "./ManageProperty";
+export { default as Resource } from "./Resource";
