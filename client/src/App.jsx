@@ -11,10 +11,15 @@ import {
     Resource,
 } from "./pages/public";
 import path from "./ultils/path";
+import { Modal } from "./components";
+import { useAppStore } from "~/store/useAppStore";
 
 function App() {
+    const { isShowModal } = useAppStore();
+
     return (
-        <div className="">
+        <div className="relative">
+            {isShowModal && <Modal />}
             <Routes>
                 <Route path={path.PUBLIC_LAYOUT} element={<PublicLayout />}>
                     <Route path={path.HOME} element={<Home />} />

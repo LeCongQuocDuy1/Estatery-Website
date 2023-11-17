@@ -6,6 +6,7 @@ export default {
             backgroundColor: {
                 background: "#f7f7fd",
                 overlay: "rgba(0, 0, 0, 0.6)",
+                overlay2: "rgba(0, 0, 0, 0.3)",
                 "main-50": "#7065f0",
                 "main-100": "#695de4",
                 "main-200": "#6156d8",
@@ -36,5 +37,5 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
 };

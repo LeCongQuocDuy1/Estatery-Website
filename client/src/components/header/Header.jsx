@@ -1,10 +1,15 @@
 import React from "react";
 import icons from "~/ultils/icons";
 import { navigations } from "~/ultils/constant";
-import Button from "../common/Button";
 import { Link, NavLink } from "react-router-dom";
+import { useUserStore } from "~/store/useUserStore";
+import { useAppStore } from "~/store/useAppStore";
+import { Login, Button } from "~/components/";
 
 const Header = () => {
+    const { token } = useUserStore();
+    const { setModal } = useAppStore();
+
     return (
         <div className="h-[85px] bg-white w-full leading-[85px] px-[36px] shadow-main">
             <div className="flex items-center justify-between">
@@ -30,10 +35,21 @@ const Header = () => {
                         </NavLink>
                     ))}
                 </div>
-                <div className="flex items-center gap-3 leading-[45px]">
-                    <Button text={"Login"} />
-                    <Button type={"primary"} text={"Sign up"} />
-                </div>
+                {!token ? (
+                    <Button
+                        type={"primary"}
+                        text={"Sign In"}
+                        onClick={() => setModal(true, <Login />)}
+                    />
+                ) : (
+                    <Button
+                        text={"Duy Le"}
+                        image={
+                            "https://lh3.googleusercontent.com/a/ACg8ocIfhe96EVBlem4KuXRdr1-vVc2BeYP2JGwYWuOrvp5-rxo=s288-c-no"
+                        }
+                        icon={<icons.FiChevronDown />}
+                    />
+                )}
             </div>
         </div>
     );
