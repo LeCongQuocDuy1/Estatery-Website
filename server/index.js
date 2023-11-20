@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const dbConnect = require("./config/dbConnect");
+const initRoutes = require("./routes");
 const port = process.env.PORT || 1234;
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+initRoutes(app);
 dbConnect();
 
 app.listen(port, () => {

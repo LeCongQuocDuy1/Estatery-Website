@@ -3,6 +3,10 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            fontSize: {
+                title: "30px",
+                desc: "16px",
+            },
             backgroundColor: {
                 background: "#f7f7fd",
                 overlay: "rgba(0, 0, 0, 0.6)",
