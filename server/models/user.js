@@ -1,5 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
+const brcypt = require("bcrypt");
+
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
         /**
@@ -18,9 +20,18 @@ module.exports = (sequelize, DataTypes) => {
             address: DataTypes.STRING,
             email: DataTypes.STRING,
             fbUrl: DataTypes.STRING,
-            password: DataTypes.STRING,
+            password: {
+                type: DataTypes.STRING,
+                set(value) {
+                    const salt = brcypt.genSaltSync(10);
+                    this.setDataValue("password", brcypt.hashSync(value, salt));
+                },
+            },
             avatar: DataTypes.STRING,
-            role: DataTypes.INTEGER,
+            role: {
+                type: DataTypes.ENUM,
+                values: ["ADMIN", "AGENT", "USER"],
+            },
         },
         {
             sequelize,

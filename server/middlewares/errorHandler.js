@@ -12,7 +12,14 @@ const throwErrorWithStatus = (code, message, res, next) => {
     next(error);
 };
 
+const badRequestException = (req, res, next) => {
+    const error = new Error(`Route ${req.originalUrl} not found`);
+    res.status(404);
+    next(error);
+};
+
 module.exports = {
     errorHandler,
     throwErrorWithStatus,
+    badRequestException,
 };
