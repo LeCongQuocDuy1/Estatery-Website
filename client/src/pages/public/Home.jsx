@@ -44,7 +44,7 @@ const Home = () => {
                 </div>
                 <div className=" grid grid-cols-3 gap-[15px] mb-[15px]">
                     <div className="relative">
-                        <div class="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
+                        <div className="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
                             <div className="">
                                 <div className="text-[20px] text-white font-bold mb-[6px]">
                                     Washington
@@ -55,7 +55,7 @@ const Home = () => {
                             </div>
                             <icons.BiMap className="text-[24px] text-white font-bold" />
                         </div>
-                        <div class="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <Button text="View Detail" />
                         </div>
                         <img
@@ -65,7 +65,7 @@ const Home = () => {
                         />
                     </div>
                     <div className="relative">
-                        <div class="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
+                        <div className="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
                             <div className="">
                                 <div className="text-[20px] text-white font-bold mb-[6px]">
                                     Washington
@@ -76,7 +76,7 @@ const Home = () => {
                             </div>
                             <icons.BiMap className="text-[24px] text-white font-bold" />
                         </div>
-                        <div class="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <Button text="View Detail" />
                         </div>
                         <img
@@ -86,7 +86,7 @@ const Home = () => {
                         />
                     </div>
                     <div className="relative">
-                        <div class="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
+                        <div className="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
                             <div className="">
                                 <div className="text-[20px] text-white font-bold mb-[6px]">
                                     Washington
@@ -97,7 +97,7 @@ const Home = () => {
                             </div>
                             <icons.BiMap className="text-[24px] text-white font-bold" />
                         </div>
-                        <div class="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <Button text="View Detail" />
                         </div>
                         <img
@@ -109,7 +109,7 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-3 gap-[15px]">
                     <div className="relative col-span-2">
-                        <div class="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
+                        <div className="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
                             <div className="">
                                 <div className="text-[20px] text-white font-bold mb-[6px]">
                                     Washington
@@ -120,7 +120,7 @@ const Home = () => {
                             </div>
                             <icons.BiMap className="text-[24px] text-white font-bold" />
                         </div>
-                        <div class="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <Button text="View Detail" />
                         </div>
                         <img
@@ -130,7 +130,7 @@ const Home = () => {
                         />
                     </div>
                     <div className="relative">
-                        <div class="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
+                        <div className="absolute top-[6%] left-[6%] z-10 flex flex-col justify-between bottom-[6%]">
                             <div className="">
                                 <div className="text-[20px] text-white font-bold mb-[6px]">
                                     Washington
@@ -141,7 +141,7 @@ const Home = () => {
                             </div>
                             <icons.BiMap className="text-[24px] text-white font-bold" />
                         </div>
-                        <div class="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute inset-0 bg-overlay2 rounded-[8px] flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <Button text="View Detail" />
                         </div>
                         <img
@@ -233,7 +233,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="relative">
-                <div class="absolute inset-0 bg-overlay"></div>
+                <div className="absolute inset-0 bg-overlay"></div>
                 <div className="absolute inset-0 text-center flex flex-col justify-center items-center">
                     <div className="w-[500px]">
                         <div className="text-[34px] text-white font-bold mb-[10px]">
