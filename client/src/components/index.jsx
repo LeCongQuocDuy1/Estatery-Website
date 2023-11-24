@@ -5,3 +5,4 @@ export { default as Footer } from "./footer/Footer";
 export { default as Login } from "./login/Login";
 export { default as SearchType } from "./common/SearchType";
 export { default as InputForm } from "./input/InputForm";
+export { default as InputRadio } from "./input/InputRadio";

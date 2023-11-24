@@ -2,7 +2,6 @@ import React from "react";
 
 const InputForm = ({
     style = "form-input rounded-[6px] text-[14px]",
-    containerClassname,
     label,
     id,
     type = "text",

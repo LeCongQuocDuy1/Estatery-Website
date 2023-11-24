@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import icons from "~/ultils/icons";
 import { useAppStore } from "~/store/useAppStore";
-import { Button, InputForm } from "..";
+import { Button, InputForm, InputRadio } from "..";
 import { useForm } from "react-hook-form";
+import { apiLogin, apiRegister } from "~/apis/auth";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import path from "~/ultils/path";
 
 const Login = () => {
+    const navigate = useNavigate();
     const { setModal } = useAppStore();
     const [variant, setVariant] = useState("signin");
     const {
@@ -14,7 +20,35 @@ const Login = () => {
         formState: { errors },
         reset,
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = async (data) => {
+        if (variant === "signup") {
+            const response = await apiRegister(data);
+            if (response.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Congratulations!",
+                    text: response.message,
+                    showConfirmButton: true,
+                    confirmButtonText: "Go sign in now!",
+                }).then(({ isConfirmed }) => {
+                    if (isConfirmed) setVariant("signin");
+                });
+            } else toast.error(response.message);
+        }
+
+        if (variant === "signin") {
+            const { name, role, ...payload } = data;
+            const response = await apiLogin(payload);
+            if (response.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Congratulations!",
+                    text: response.message,
+                });
+                setModal(false, null);
+            } else toast.error(response.message);
+        }
+    };
 
     useEffect(() => {
         reset();
@@ -59,17 +93,17 @@ const Login = () => {
             </div>
             <form className="px-[10px]">
                 <InputForm
-                    id="email"
-                    label="Email"
+                    id="phone"
+                    label="Phone Number"
                     register={register}
-                    placeholderText="Enter email"
-                    type="email"
+                    placeholderText="Enter phone number"
+                    type="tel"
                     errors={errors}
                     validate={{
-                        required: "Email is required!",
+                        required: "Phone is required!",
                         pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: "Invalid email address",
+                            value: /^[0-9]{10}$/i,
+                            message: "Phone number isn't valid!",
                         },
                     }}
                 />
@@ -101,17 +135,35 @@ const Login = () => {
                         errors={errors}
                     />
                 )}
+                {variant === "signup" && (
+                    <InputRadio
+                        id="role"
+                        label="Role"
+                        type="radio"
+                        register={register}
+                        validate={{
+                            required: "Role is required!",
+                        }}
+                        errors={errors}
+                        options={[
+                            { label: "User", value: "USER" },
+                            { label: "Agent", value: "AGENT" },
+                        ]}
+                    />
+                )}
                 <div className="my-[12px]">
                     <Button
                         onClick={handleSubmit(onSubmit)}
                         type="primary"
-                        text="Sign in"
+                        text={variant === "signin" ? "Sign in" : "Submit"}
                         fullWidth={true}
                     />
                 </div>
-                <div className="text-[14px] font-bold text-main-300 cursor-pointer hover:underline hover:text-main-500 w-full text-center">
-                    Forgot your password?
-                </div>
+                {variant === "signin" && (
+                    <div className="text-[14px] font-bold text-main-300 cursor-pointer hover:underline hover:text-main-500 w-full text-center">
+                        Forgot your password?
+                    </div>
+                )}
             </form>
         </div>
     );

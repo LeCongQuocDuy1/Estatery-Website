@@ -13,12 +13,15 @@ import {
 import path from "./ultils/path";
 import { Modal } from "./components";
 import { useAppStore } from "~/store/useAppStore";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     const { isShowModal } = useAppStore();
 
     return (
         <div className="relative">
+            <ToastContainer />
             {isShowModal && <Modal />}
             <Routes>
                 <Route path={path.PUBLIC_LAYOUT} element={<PublicLayout />}>
