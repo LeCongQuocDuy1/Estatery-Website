@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import icons from "~/ultils/icons";
 import { useAppStore } from "~/store/useAppStore";
+import { useUserStore } from "~/store/useUserStore";
 import { Button, InputForm, InputRadio } from "..";
 import { useForm } from "react-hook-form";
 import { apiLogin, apiRegister } from "~/apis/auth";
@@ -9,6 +10,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
     const { setModal } = useAppStore();
+    const { token, setToken } = useUserStore();
     const [isLoading, setLoading] = useState(false);
     const [variant, setVariant] = useState("signin");
     const {
@@ -45,6 +47,9 @@ const Login = () => {
                     title: "Congratulations!",
                     text: response.message,
                 });
+                console.log(response);
+                console.log(token);
+                setToken(response.accessToken);
                 setModal(false, null);
             } else toast.error(response.message);
         }
