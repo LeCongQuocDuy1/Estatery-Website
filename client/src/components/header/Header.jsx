@@ -35,7 +35,8 @@ const Header = () => {
                         </NavLink>
                     ))}
                 </div>
-                {!token ? (
+                {/* !token */}
+                {true ? (
                     <Button
                         type={"primary"}
                         text={"Sign In"}

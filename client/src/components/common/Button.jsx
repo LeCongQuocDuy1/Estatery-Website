@@ -18,7 +18,7 @@ const Button = ({
                     ? "bg-main-50 text-white"
                     : type === "disabled"
                     ? "opacity-50"
-                    : "text-white  border-[#fff] border-[2px] hover:bg-[#d3d3d318]"
+                    : "bg-main-50 text-white h-[54px]"
             } ${fullWidth ? "w-full" : ""} ${style || ""}`}
             onClick={onClick}
             disabled={disabled}

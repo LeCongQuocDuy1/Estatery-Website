@@ -13,11 +13,20 @@ import {
 import path from "./ultils/path";
 import { Modal } from "./components";
 import { useAppStore } from "~/store/useAppStore";
+import { useUserStore } from "~/store/useUserStore";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 function App() {
     const { isShowModal } = useAppStore();
+    const { getCurrent, current } = useUserStore();
+
+    useEffect(() => {
+        getCurrent();
+    }, []);
+
+    console.log(current);
 
     return (
         <div className="relative">
