@@ -6,12 +6,10 @@ import { useForm } from "react-hook-form";
 import { apiLogin, apiRegister } from "~/apis/auth";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import path from "~/ultils/path";
 
 const Login = () => {
-    const navigate = useNavigate();
     const { setModal } = useAppStore();
+    const [isLoading, setLoading] = useState(false);
     const [variant, setVariant] = useState("signin");
     const {
         register,
@@ -22,7 +20,9 @@ const Login = () => {
     } = useForm();
     const onSubmit = async (data) => {
         if (variant === "signup") {
+            setLoading(true);
             const response = await apiRegister(data);
+            setLoading(false);
             if (response.success) {
                 Swal.fire({
                     icon: "success",

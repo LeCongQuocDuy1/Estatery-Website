@@ -4,6 +4,7 @@ import { FaTimes, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { BiMap } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import { TiSocialLinkedin, TiSocialTwitter } from "react-icons/ti";
+import { CgSpinner } from "react-icons/cg";
 
 const icons = {
     RiHome6Fill,
@@ -15,6 +16,7 @@ const icons = {
     FaInstagram,
     TiSocialLinkedin,
     TiSocialTwitter,
+    CgSpinner,
 };
 
 export default icons;
